@@ -1,6 +1,12 @@
 import numpy as np
 from xkcdify import *
 import matplotlib.pyplot as plt
+
+def gauss(a, mu, sigma, x):
+        return a*np.exp(-1*((x - mu)**2)/(2*sigma**2))
+
+
+#parameters of the first bimodal Gaussian distribution
 size = 1000
 a1 = 10
 mu1 = 8
@@ -26,8 +32,7 @@ mu5 = 3
 sigma5 = 1
 fig = plt.figure(figsize = (16, 12))
 l = np.linspace(0, 30, size)
-def gauss(a, mu, sigma, x):
-	return a*np.exp(-1*((x - mu)**2)/(2*sigma**2))
+
 
 ax1 = fig.add_subplot(311)
 ax1.plot(l, gauss(a1, mu1, sigma1, l) + gauss(a2, mu2, sigma2, l), 'b', lw=1)
@@ -42,6 +47,8 @@ ax1.set_xlabel('Hair length')
 ax1.set_ylabel('Hair amount')
 #ax1.set_xlim(0, 26)
 ax1.set_ylim(0, 20)
+
+#xkcdify
 XKCDify(ax1, xaxis_loc=0.0, yaxis_loc=0.0,
         xaxis_arrow='+-', yaxis_arrow='+-',
         expand_axes=False)
@@ -83,11 +90,6 @@ XKCDify(ax3, xaxis_loc=0.0, yaxis_loc=0.0,
         expand_axes=False)
 
 
-#ax.set_xlim(0, 30)
-#ax.set_ylim(0, 15)
-
-#XKCDify the axes -- this operates in-place
 plt.subplots_adjust(left=None, bottom=None, right=None, top=0.9, wspace=None, hspace=0.4)
-
 
 plt.savefig('x')
