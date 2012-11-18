@@ -99,7 +99,7 @@ def xkcd_line(x, y, xlim=None, ylim=None,
     return x_int, y_int
 
 
-def XKCDify(ax, mag=1.0,
+def XKCDify(ax, mag=0.5,
             f1=50, f2=0.01, f3=15,
             bgcolor='w',
             xaxis_loc=None,
@@ -163,9 +163,9 @@ def XKCDify(ax, mag=1.0,
 
     # Label axes3, 0.5, 'hello', fontsize=14)
     ax.text(xax_lim[1], xaxis_loc - 0.02 * yspan, ax.get_xlabel(),
-            fontsize=14, ha='right', va='top', rotation=2)
+            fontsize=14, ha='right', va='top', rotation=0)
     ax.text(yaxis_loc - 0.02 * xspan, yax_lim[1], ax.get_ylabel(),
-            fontsize=14, ha='right', va='top', rotation=89)
+            fontsize=14, ha='right', va='top', rotation=90)
     ax.set_xlabel('')
     ax.set_ylabel('')
 
